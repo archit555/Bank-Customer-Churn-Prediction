@@ -33,8 +33,10 @@ As part of analyzing the data, we plotted different predictors against the targe
 
 ### Customer Churn by Geography
 ![Churn by Geography](https://user-images.githubusercontent.com/44424472/126025672-7fc21789-9397-4d0d-9b30-ab5b07cd7ab7.PNG)
+![image](https://user-images.githubusercontent.com/44424472/126912085-ba789af5-2a6d-4d9f-8468-4e55dd9807ec.png)
 
 The smallest number of customers are from Germany, and they are also the most likely to leave the bank. Almost one in three German customers in our sample left the bank.
+In percentage, female customers are more likely to leave the bank at 25%, compared to 16% of males.
 
 ---
 
