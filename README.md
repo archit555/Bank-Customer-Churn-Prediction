@@ -49,6 +49,7 @@ In percentage, female customers are more likely to leave the bank at 25%, compar
 ![Churn by Exit Status](https://user-images.githubusercontent.com/44424472/126026664-1e0ccd6e-db2b-4db6-bb89-4b94ab833b31.PNG)
 
 The majority class, "Stays" (0), has around 80% data points and the minority class, "Exits" (1), has around 20% datapoints.
+So the baseline model could be to predict that 20% of the customers will churn. Given 20% is a small number, we need to ensure that the chosen model does predict with great accuracy this 20% as it is of interest to the bank to identify and keep this bunch as opposed to accurately predicting the customers that are retained. So instead of looking only at overall model accuracy, we will should also focus on recall.
 
 ---
 
