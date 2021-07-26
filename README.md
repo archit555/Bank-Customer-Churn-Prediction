@@ -50,7 +50,7 @@ So the baseline model could be to predict that 20% of the customers will churn. 
 ### Distribution Analysis:
 ![Density Plots](https://user-images.githubusercontent.com/44424472/126027391-d4f81e7c-0a2b-499e-9d7d-b6a8ca4cf5e1.PNG)
 
-From density plots we can see that older customers and customer with more products more often leaving the bank. We can also observe that customer having only 2 products has very less churn rate.
+From density plots we can see that customer with more products and older customer are more often leaving the bank. We can also observe that customer having only 2 products has very less churn rate.
 
 ![Density Plots - Balance](https://user-images.githubusercontent.com/44424472/126043629-2ef9ec8d-a945-41c9-8294-c38fee26ad6c.PNG)
 
