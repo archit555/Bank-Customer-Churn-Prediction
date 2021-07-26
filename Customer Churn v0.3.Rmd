@@ -294,7 +294,12 @@ library(tree)
 
 library(tree)
 library(randomForest)
+library(gbm)
+df$Geography = as.factor(df$Geography)
+df$Gender = as.factor((df$Gender))
 set.seed(100)
+accuracy.df = data.frame(accuracy=numeric(3))
+rownames(accuracy.df)=c("mtry=3","mtry=4","mtry=5")
 train = sample(1:nrow(df),7000)
 churn.train=df[train,]
 churn.test=df[-train,]
@@ -305,12 +310,9 @@ churn.pred1 = predict(churn.rf1,newdata = churn.test)
 OOSPred1 = table(churn.pred1,churn.test$Exited)
 
 #importance(churn.rf)
-varImpPlot(churn.rf1)
-accuracy1=(sum(diag(OOSPred1)))/sum(OOSPred1)
-accuracy1
 
-plot(tree(churn.rf1))
-text(tree(churn.rf1),pretty=0)
+accuracy1=(sum(diag(OOSPred1)))/sum(OOSPred1)
+accuracy.df[1,1]=accuracy1
 
 #mtry = 4
 set.seed(100)
@@ -319,18 +321,21 @@ churn.rf2 = randomForest(Exited~.,data=churn.train,ntree=100,mtry = 4, proximity
 churn.pred2 = predict(churn.rf2,newdata = churn.test)
 OOSPred2 = table(churn.pred2,churn.test$Exited)
 accuracy2=(sum(diag(OOSPred2)))/sum(OOSPred2)
-accuracy2
+accuracy.df[2,1]=accuracy2
 
-#mtry = 2
+#mtry = 5
 set.seed(100)
 
-churn.rf3 = randomForest(Exited~.,data=churn.train,ntree=100,mtry = 2, proximity=T,importance=T)
+churn.rf3 = randomForest(Exited~.,data=churn.train,ntree=100,mtry = 5, proximity=T,importance=T)
 churn.pred3 = predict(churn.rf3,newdata = churn.test)
 OOSPred3 = table(churn.pred3,churn.test$Exited)
 accuracy3=(sum(diag(OOSPred3)))/sum(OOSPred3)
-accuracy3
-
-
+accuracy.df[3,1]=accuracy3
+accuracy.df
+plot(tree(churn.rf2),pretty=0)
+text(tree(churn.rf2))
+OOSPred2
+varImpPlot(churn.rf2)
 ```
 #Logistic Regression
 library(tidyverse)
